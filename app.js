@@ -1,18 +1,22 @@
 var app = angular.module('beerBlog', []);
 
+app.factory('posts', [function(){
+	var o = {
+		posts: []
+	};
+	return o;
+}])
+
+
+
 app.controller('MainCtrl', [
 	'$scope',
-	function($scope){
+	'posts',
+	function($scope, posts){
 		$scope.test = 'Hello world!';
 
-		$scope.posts = [
-			{title: 'beer 1', upvotes: 5},
-			{title: 'beer 2', upvotes: 4},
-			{title: 'beer 3', upvotes: 3},
-			{title: 'beer 4', upvotes: 2},
-			{title: 'beer 5', upvotes: 1}
+		$scope.posts = posts.posts; 
 		
-		];
 
 		$scope.addPost = function(){
 			// prevents user from posting an empty post
