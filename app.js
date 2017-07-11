@@ -1,5 +1,28 @@
-var app = angular.module('beerBlog', []);
+var app = angular.module('beerBlog', ['ui.router']);
 
+//CONFIGURE HOME STATE USING UI-ROUTER.
+//ALSO REDIRECT UKNOWN URLS TO HOMEPAGE
+app.config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider){
+		$stateProvider
+		.state('home', {
+			url: '/home',
+			templateUrl: '/home.html',
+			controller: 'MainCtrl'
+		});
+
+		$urlRouterProvider
+		.otherwise('home');
+
+	}]);
+
+
+
+
+
+// POST VARIABLE HOLDS DYNAMIC DATA ENTERED IN FORM IN THE UI
 app.factory('posts', [function(){
 	var o = {
 		posts: []
@@ -8,7 +31,7 @@ app.factory('posts', [function(){
 }])
 
 
-
+// ADDING POSTS, UPVOTING POSTS
 app.controller('MainCtrl', [
 	'$scope',
 	'posts',
@@ -16,7 +39,7 @@ app.controller('MainCtrl', [
 		$scope.test = 'Hello world!';
 
 		$scope.posts = posts.posts; 
-		
+
 
 		$scope.addPost = function(){
 			// prevents user from posting an empty post
