@@ -18,6 +18,12 @@ app.config([
 			controller: 'PostsCtrl'
 		});
 
+		// $stateProvider.state('login', {
+		// 	url: '/login',
+		// 	templateUrl: '/login.html',
+		// 	controller: 'LoginCtrl'
+		// });
+
 		$urlRouterProvider
 		.otherwise('home');
 
@@ -83,3 +89,15 @@ app.controller('PostsCtrl', [
 			$scope.body = '';
 		};
 	}]);
+
+
+
+// app.controller('LoginCtrl', [
+// 	'$scope',
+// 	function($scope){
+// 		$scope.message = "welcome to login page";
+// 		};
+// 	}]);
+
+
+
