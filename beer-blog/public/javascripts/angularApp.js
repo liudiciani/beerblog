@@ -25,8 +25,6 @@ app.config([
 
 
 
-
-
 // POST VARIABLE HOLDS DYNAMIC DATA ENTERED IN FORM IN THE UI
 app.factory('posts', [function(){
 	var o = {
