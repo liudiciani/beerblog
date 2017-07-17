@@ -34,8 +34,6 @@ app.use('/users', users);
 
 
 
-
-
 //////// ERROR HANDLING ///////////
 
 // catch 404 and forward to error handler
