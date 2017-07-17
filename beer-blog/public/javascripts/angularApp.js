@@ -1,4 +1,4 @@
-var app = angular.module('beerBlog', ['ui.router']);
+var app = angular.module('app',['ui.router']);
 
 //CONFIGURE HOME STATE USING UI-ROUTER.
 //ALSO REDIRECT UKNOWN URLS TO HOMEPAGE
@@ -18,11 +18,11 @@ app.config([
 			controller: 'PostsCtrl'
 		});
 
-		// $stateProvider.state('login', {
-		// 	url: '/login',
-		// 	templateUrl: '/login.html',
-		// 	controller: 'LoginCtrl'
-		// });
+		$stateProvider.state('login', {
+		 	url: '/login',
+		 	templateUrl: '/login.html',
+		 	controller: 'LoginCtrl'
+		 });
 
 		$urlRouterProvider
 		.otherwise('home');
@@ -45,7 +45,6 @@ app.controller('MainCtrl', [
 	'$scope',
 	'posts',
 	function($scope, posts){
-		$scope.test = 'Hello world!';
 
 		$scope.posts = posts.posts; 
 
@@ -55,7 +54,7 @@ app.controller('MainCtrl', [
 			if(!$scope.title || $scope.title === ''){return;}
 			$scope.posts.push({
 				title: $scope.title,
-				link: $scope.link,
+				content: $scope.content,
 				upvotes: 0,
 				comments: [
 					{author: 'Joe', body: 'Cool post!', upvotes: 0},
@@ -63,13 +62,12 @@ app.controller('MainCtrl', [
 				]
 			});
 			$scope.title = '';
-			$scope.link = '';
+			$scope.content = '';
 		};
 
 		$scope.incrementUpvotes = function(post){
 			post.upvotes += 1;
 		}
-
 
 	}]);
 
@@ -92,12 +90,11 @@ app.controller('PostsCtrl', [
 
 
 
-// app.controller('LoginCtrl', [
-// 	'$scope',
-// 	function($scope){
-// 		$scope.message = "welcome to login page";
-// 		};
-// 	}]);
+app.controller('LoginCtrl', [
+	'$scope',
+	function($scope){
+		$scope.message = "welcome to login page";
+	}]);
 
 
 
