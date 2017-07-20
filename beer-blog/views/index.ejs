@@ -1,177 +1,1 @@
-<html>
-<head>
-  <title>Brew Blog</title>
-  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
-
-  <script src="angular.min.js"></script>
-
-  <script src="/javascripts/angularApp.js"></script>
-  <style> .glyphicon-thumbs-up { cursor:pointer } </style>
-</head>
-
-
-
-<body ng-app="app">
-
-<!--....................... HEADER ...................-->
-  <div class="parallax">
-  </div>
-  <div class = "jumbotron">
-  <h1><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/137618-200.png">
-    <span id="brew">Brew</span><span id="blog">Blog</span></h1>
-    </div>
-
-<!--................. INSERT TEMPLATES ..................-->
-
-     
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-    	<ui-view></ui-view>
-    </div>
-  </div>
-
-
-  <!---:::::::::::::      TEMPLATES     ::::::::::::::-->
-
-
-
-<!--................. HOMEPAGE .....................-->
-  <script type = "text/ng-template" id="/home.html">
-   <div class ="page-header">
-    <h1>Welcome back!</h1>
-   </div>
-
-  <p>What new brew did you try today?</p>
-
-  
-  <!-- NEW POST FORM -->
-  <form ng-submit="addPost()"
-  style="margin-top:30px;">
-  <h3>Add a new beer</h3>
-
-  <div class="form-group">
-    <input type="text"
-    class="form-control"
-    placeholder="Name"
-    ng-model="name"></input>
-  </div>
-  <div class="form-group">
-    <input type="text"
-    class="form-control"
-    placeholder="Content"
-    ng-model="content"></input>
-  </div>
-  <div class="form-group">
-    <input type="number"
-    min="1"
-    max="10"
-    class="form-control"
-    placeholder="Rating"
-    ng-model="rating"></input>
-  </div>
-  <div class="form-group">
-    <input type="url"
-    class="form-control"
-    placeholder="Picture"
-    ng-model="pic"></input>
-  </div>
-  <button type="submit" class="btn btn-primary">Post</button>
-</form>
-
-
-
-    <div class="row">
-      <div ng-repeat="post in posts | orderBy:'-rating'">
-      
-
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-
-            <img src="http://drizly.com/blog/wp-content/uploads/2015/06/xbigstock-Ale-Beer-73578616-600x450.jpg.pagespeed.ic.m1VtsciPc3.jpg">
-            
-            <div class="caption">
-
-            <span class="glyphicon glyphicon-heart" ng-click="incrementRating(post)">{{post.rating}}/10</span>
-
-
-              <h3>{{post.name}}</h3>
-              <p>{{post.content}}</p>
-              <p><a href="#/posts/{{$index}}" class="btn btn-default" role="button">View Post</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-</script>
-
-
-
-
-<!--................. VIEW POST PAGE .....................-->
-
-<script type="text/ng-template" id="/posts.html">
-  <div class="page-header">
-    <h3>
-      <a ng-show="post.link" href="{{post.link}}">
-        {{post.name}}
-      </a>
-      <span ng-hide="post.link">
-        {{post.name}}
-      </span>
-    </h3>
-  </div>
-  
-   <p>
-      <span ng-show="post.pic">
-        {{post.pic}}
-      </span>
-
-      <span ng-show="post.content">
-        {{post.content}}
-      </span>
-  </p>
-
-
-
-
-  <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-    <span class="glyphicon glyphicon-thumbs-up"
-      ng-click="incrementUpvotes(comment)"></span>
-    {{comment.upvotes}} - by {{comment.author}}
-    <span style="font-size:20px; margin-left:10px;">
-      {{comment.body}}
-    </span>
-  </div>
-
-  <form ng-submit="addComment()"
-    style="margin-top:30px;">
-    <h3>Add a new comment</h3>
-
-    <div class="form-group">
-      <input type="text"
-      class="form-control"
-      placeholder="Comment"
-      ng-model="body"></input>
-    </div>
-    <button type="submit" class="btn btn-primary">Post</button>
-  </form>
-</script>
-
-
-<!--................. LOGIN PAGE .....................-->
-
- <script type = "text/ng-template" id="/login.html">
-   <div class ="page-header">
-   <h1>Login Page</h1></div>
-    {{message}}
-</script> 
-
-
-</body>
-</html>
+<html><head>  <title>Brew Blog</title>  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">  <link rel="stylesheet" href="/stylesheets/style.css">  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>  <script src="angular.min.js"></script>  <script src="/javascripts/angularApp.js"></script>  <style> .glyphicon-thumbs-up { cursor:pointer } </style>  <script type='text/javascript' src='jquery.2.0.2.js'></script><script type='text/javascript' src='jquery.form.js'></script></head><body ng-app="app"><!--....................... HEADER ...................-->  <div class="parallax">  </div>  <div class = "jumbotron">    <h1><img src="https://d30y9cdsu7xlg0.cloudfront.net/png/137618-200.png">    <span id="brew">Brew</span><span id="blog">Blog</span></h1>  </div><!--................. INSERT TEMPLATES ..................-->       <div class="row">    <div class="col-md-6 col-md-offset-3">    	<ui-view></ui-view>    </div>  </div>  <!---:::::::::::::      TEMPLATES     ::::::::::::::--><!--................. HOMEPAGE .....................-->  <script type = "text/ng-template"   id="/home.html">   <div class="page-header">    <h1>Welcome back!</h1>   </div>    <p>What new brew did you try today?</p>    <form ng-submit="addPost()"    style="margin-top:30px;">    <h3>Add a new beer</h3>    <div class="form-group">      <input type="text"      class="form-control"      placeholder="Name"      ng-model="name"></input>    </div>    <div class="form-group">      <input type="text"      class="form-control"      placeholder="Content"      ng-model="content"></input>    </div>    <div class="form-group">      <input type="number"      min="1"      max="10"      class="form-control"      placeholder="Rating"      ng-model="rating"></input>    </div>    <button type="submit" class="btn btn-primary">Post</button>  </form>      <div class="row">        <div ng-repeat="post in posts | orderBy:'-rating'">                  <div class="col-sm-6 col-md-4">            <div class="thumbnail">              <img src="http://drizly.com/blog/wp-content/uploads/2015/06/xbigstock-Ale-Beer-73578616-600x450.jpg.pagespeed.ic.m1VtsciPc3.jpg">                            <div class="caption">              <span class="glyphicon glyphicon-heart" ng-click="incrementRating(post)">{{post.rating}}/10</span>                <h3>{{post.name}}</h3>                <p>{{post.content}}</p>                <p><a href="#/posts/{{$index}}" class="btn btn-default" role="button">View Post</a></p>              </div>            </div>          </div>        </div></script><!--................. VIEW POST PAGE .....................--><script type="text/ng-template" id="/posts.html">  <div class="page-header">    <h3>      <a ng-show="post.link" href="{{post.link}}">        {{post.name}}      </a>      <span ng-hide="post.link">        {{post.name}}      </span>    </h3>  </div>     <p>      <span ng-show="post.pic">        {{post.pic}}      </span>      <span ng-show="post.content">        {{post.content}}      </span>  </p>  <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">    <span class="glyphicon glyphicon-thumbs-up"      ng-click="incrementUpvotes(comment)"></span>    {{comment.upvotes}} - by {{comment.author}}    <span style="font-size:20px; margin-left:10px;">      {{comment.body}}    </span>  </div>  <form ng-submit="addComment()"    style="margin-top:30px;">    <h3>Add a new comment</h3>    <div class="form-group">      <input type="text"      class="form-control"      placeholder="Comment"      ng-model="body"></input>    </div>    <button type="submit" class="btn btn-primary">Post</button>  </form></script><!--................. LOGIN PAGE .....................--> <script type = "text/ng-template" id="/login.html">   <div class ="page-header">   <h1>Login Page</h1></div>    {{message}}</script> </body></html>

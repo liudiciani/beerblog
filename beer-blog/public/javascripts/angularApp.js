@@ -52,17 +52,19 @@ app.controller('MainCtrl', [
 		$scope.addPost = function(){
 			// prevents user from posting an empty post
 			if(!$scope.name || $scope.name === ''){return;}
+			
 			$scope.posts.push({
 				name: $scope.name,
 				content: $scope.content,
-				pic: $scope.pic,
 				rating: $scope.rating,
 				upvotes: 0,
 				comments: [
 					{author: 'Joe', body: 'Cool post!', upvotes: 0},
 					{author: 'Phil', body: 'Dece', upvotes: 0}
 				]
+
 			});
+
 			$scope.name = '';
 			$scope.content = '';
 			$scope.rating = '';
@@ -78,6 +80,8 @@ app.controller('MainCtrl', [
 			post.upvotes += 1;
 		}
 
+
+		
 	}]);
 
 app.controller('PostsCtrl', [
@@ -106,4 +110,4 @@ app.controller('LoginCtrl', [
 	}]);
 
 
-
+ 
