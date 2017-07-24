@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var firebase = require("firebase");
 
 var app = express();
 
@@ -29,8 +30,18 @@ app.use('/', index);
 app.use('/users', users);
 
 
+var config = {
+    apiKey: "AIzaSyBzeP4SnDLXLHgHRX5_VlpC5SJgxPYJN8c",
+    authDomain: "beerblog-f3ab0.firebaseapp.com",
+    databaseURL: "https://beerblog-f3ab0.firebaseio.com",
+    projectId: "beerblog-f3ab0",
+    storageBucket: "beerblog-f3ab0.appspot.com",
+    messagingSenderId: "179611680891"
+  };
+firebase.initializeApp(config);
 
 
+var database = firebase.database();
 
 
 
@@ -59,4 +70,4 @@ app.use(function(err, req, res, next) {
 
 
 
-module.exports = app;
+module.exports = app, firebase;
