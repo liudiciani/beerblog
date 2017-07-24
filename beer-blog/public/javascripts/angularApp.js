@@ -106,7 +106,7 @@ app.controller('PostsCtrl', [
 app.controller('LoginCtrl', [
 	'$scope',
 	function($scope){
-		$scope.message = "welcome to login page";
+		$scope.message = "welcome to login page!";
 	}]);
 
 
