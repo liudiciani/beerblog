@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var firebase = require("firebase");
+var firebase = require('firebase');
 
 var app = express();
 
@@ -29,19 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
-
-var config = {
-    apiKey: "AIzaSyBzeP4SnDLXLHgHRX5_VlpC5SJgxPYJN8c",
-    authDomain: "beerblog-f3ab0.firebaseapp.com",
-    databaseURL: "https://beerblog-f3ab0.firebaseio.com",
-    projectId: "beerblog-f3ab0",
-    storageBucket: "beerblog-f3ab0.appspot.com",
-    messagingSenderId: "179611680891"
-  };
-firebase.initializeApp(config);
-
-
-var database = firebase.database();
 
 
 
@@ -66,8 +53,30 @@ app.use(function(err, req, res, next) {
 });
 
 
+var config = {
+    apiKey: "AIzaSyBzeP4SnDLXLHgHRX5_VlpC5SJgxPYJN8c",
+    authDomain: "beerblog-f3ab0.firebaseapp.com",
+    databaseURL: "https://beerblog-f3ab0.firebaseio.com",
+    projectId: "beerblog-f3ab0",
+    storageBucket: "beerblog-f3ab0.appspot.com"
+  };
+firebase.initializeApp(config);
 
+
+var database = firebase.database();
+
+
+// var admin = require('firebase-admin');
+
+// // var serviceAccount = require("path/to/serviceAccountKey.json");
+
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://beerblog-f3ab0.firebaseio.com"
+// });
 
 
 
 module.exports = app, firebase;
+
+

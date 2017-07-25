@@ -1,5 +1,6 @@
 var app = angular.module('app',['ui.router']);
 
+
 //CONFIGURE HOME STATE USING UI-ROUTER.
 //ALSO REDIRECT UKNOWN URLS TO HOMEPAGE
 app.config([
@@ -125,6 +126,31 @@ app.controller('PostsCtrl', [
 		};
 	}]);
 
+
+
+// app.controller('LoginCtrl', [
+// 	'$scope',
+// 	function($scope){
+// 		$scope.addUser = function(){
+// 			  admin.auth().createUser({
+// 			  email: "test@example.com",
+// 			  uid: "test-uid",
+// 			  emailVerified: true,
+// 			  password: "password",
+// 			  displayName: "Test",
+// 			  photoURL: "http://4.bp.blogspot.com/-x_QDRsKtCko/UgWs4GzqOgI/AAAAAAAAEJU/KzBJO_r6MaI/s1600/Funny-Animals-Dog-Smoking.jpg",
+// 			  disabled: false
+// 			})
+// 			  .then(function(userRecord) {
+// 			    // See the UserRecord reference doc for the contents of userRecord.
+// 			    console.log("Successfully created new user:", userRecord.uid);
+// 			  })
+// 			  .catch(function(error) {
+// 			    console.log("Error creating new user:", error);
+//   			});
+// 		};
+// 	};
+// }]);
 
 
  

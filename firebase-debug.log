@@ -1,0 +1,28 @@
+[debug] [2017-07-25T00:28:25.613Z] ----------------------------------------------------------------------
+[debug] [2017-07-25T00:28:25.615Z] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-07-25T00:28:25.616Z] CLI Version:  3.9.1
+[debug] [2017-07-25T00:28:25.616Z] Platform:     darwin
+[debug] [2017-07-25T00:28:25.616Z] Node Version: v7.2.0
+[debug] [2017-07-25T00:28:25.616Z] Time:         Mon Jul 24 2017 20:28:25 GMT-0400 (EDT)
+[debug] [2017-07-25T00:28:25.616Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-25T00:28:25.626Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-25T00:28:25.626Z] > authorizing via signed-in user
+[debug] [2017-07-25T00:28:25.628Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/beerblog-f3ab0  
+ Mon Jul 24 2017 20:28:25 GMT-0400 (EDT)
+[debug] [2017-07-25T00:28:26.633Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-25T00:28:26.633Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/beerblog-f3ab0/tokens  
+ Mon Jul 24 2017 20:28:26 GMT-0400 (EDT)
+[debug] [2017-07-25T00:28:27.000Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/liudicia/Documents/beerblog/beer-blog'...
+[info] 
+[debug] [2017-07-25T00:28:27.003Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/beerblog-f3ab0  
+ Mon Jul 24 2017 20:28:27 GMT-0400 (EDT)
+[debug] [2017-07-25T00:28:27.357Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-25T00:28:27.357Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/179611680891/clients/_:getWebAppConfig  
+ Mon Jul 24 2017 20:28:27 GMT-0400 (EDT)
+[debug] [2017-07-25T00:28:27.958Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+
