@@ -1,0 +1,57 @@
+{
+        "name":"Beer",
+        "properties":
+        {
+                "id":
+                {
+                        "type":"number",
+                        "description":"Beer identifier",
+                        "required":true
+                },
+                "name":
+                {
+                        "description":"Name of the beer",
+                        "type":"string",
+                        "required":true
+                },
+                "rating":
+                {
+                        "type":"number",
+                        "minimum":1,
+                        "maximum": 10,
+                        "required":true
+                },
+                "style":
+                {
+                        "type":"string",
+                        "description":"Style of the beer",
+                        "required":true
+                },
+                "ABV":
+                {
+                        "type":"number",
+                        "required":true
+                },
+                "brewery":
+                {
+                        "type":"string",
+                        "required":true
+                },
+                "availability":
+                {
+                        "type":"string",
+                        "requied":false
+                },
+                "location":
+                {
+                        "type":"string",
+                        "required":true
+                },
+                "picture":
+                {
+                        "type":"string",
+                        "requied":false
+                }
+
+        }
+}
