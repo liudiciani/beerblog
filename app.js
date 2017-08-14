@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var firebase = require('firebase');
+require("firebase/auth");
+require("firebase/database");
 
 var app = express();
 
@@ -52,6 +54,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+////////// FIREBASE THINGS /////////////
 
 var config = {
     apiKey: "AIzaSyBzeP4SnDLXLHgHRX5_VlpC5SJgxPYJN8c",
@@ -66,17 +69,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
-// var admin = require('firebase-admin');
 
-// // var serviceAccount = require("path/to/serviceAccountKey.json");
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://beerblog-f3ab0.firebaseio.com"
-// });
-
-
-
-module.exports = app, firebase;
+module.exports = app, firebase, database;
 
 

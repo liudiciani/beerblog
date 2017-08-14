@@ -1,5 +1,8 @@
 var app = angular.module('app',['ui.router']);
 
+//https://firebase.google.com/docs/database/#implementation_path
+//THIS IS WHERE YOU LEFT OFF!! Try connecting to database to read/write data to UI thx
+
 
 //CONFIGURE HOME STATE USING UI-ROUTER.
 //ALSO REDIRECT UKNOWN URLS TO HOMEPAGE
@@ -38,7 +41,7 @@ app.factory('posts', [function(){
 		posts: []
 	};
 	return o;
-}])
+}]);
 
 
 // ADDING POSTS, UPVOTING POSTS
@@ -79,34 +82,19 @@ app.controller('MainCtrl', [
 
 		$scope.incrementUpvotes = function(post){
 			post.upvotes += 1;
+
+			 //    database.goOnline();
+			
+				// var rootRef = firebase.database().ref('beers/0/name');
+				// rootRef.once('value').then(function(snapshot)){
+				// var key = snapshot.val().key; //"Jigsaw Jazz"
+				 
+				// post.upvotes += 100000000; 
+				// }
+			
+			}
 		}
 
-
-		
-	}
-
-//https://firebase.google.com/docs/database/web/read-and-write
-	// function writeNewPost(uid, username, picture, title, body) {
-	// 	  // A post entry.
-	// 	  var postData = {
-	// 	    author: username,
-	// 	    uid: uid,
-	// 	    body: body,
-	// 	    title: title,
-	// 	    starCount: 0,
-	// 	    authorPic: picture
-	// 	  };
-
-	// 	  // Get a key for a new Post.
-	// 	  var newPostKey = firebase.database().ref().child('posts').push().key;
-
-	// 	  // Write the new post's data simultaneously in the posts list and the user's post list.
-	// 	  var updates = {};
-	// 	  updates['/posts/' + newPostKey] = postData;
-	// 	  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-	// 	  return firebase.database().ref().update(updates);
-	// 	}
 ]);
 
 app.controller('PostsCtrl', [
@@ -114,6 +102,7 @@ app.controller('PostsCtrl', [
 	'$stateParams',
 	'posts',
 	function($scope, $stateParams, posts){
+
 		$scope.post = posts.posts[$stateParams.id]
 		$scope.addComment = function(){
 			if($scope.body === '') {return;}
@@ -125,8 +114,6 @@ app.controller('PostsCtrl', [
 			$scope.body = '';
 		};
 	}]);
-
-
 
 // app.controller('LoginCtrl', [
 // 	'$scope',
@@ -153,4 +140,5 @@ app.controller('PostsCtrl', [
 // }]);
 
 
- 
+
+
