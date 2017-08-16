@@ -1,4 +1,4 @@
-var app = angular.module('app',['ui.router']);
+var app = angular.module('app',['ui.router', 'firebase']);
 
 //https://firebase.google.com/docs/database/#implementation_path
 //THIS IS WHERE YOU LEFT OFF!! Try connecting to database to read/write data to UI thx
@@ -28,6 +28,12 @@ app.config([
 		 	controller: 'LoginCtrl'
 		 });
 
+		$stateProvider.state('dbtest', {
+		 	url: '/dbtest',
+		 	templateUrl: '/dbtest.html',
+		 	controller: 'TestCtrl'
+		 });
+
 		$urlRouterProvider
 		.otherwise('home');
 
@@ -50,10 +56,14 @@ app.controller('MainCtrl', [
 	'posts',
 	function($scope, posts){
 
+		
+
 		$scope.posts = posts.posts; 
 
 
 		$scope.addPost = function(){
+			
+			
 			// prevents user from posting an empty post
 			if(!$scope.name || $scope.name === ''){return;}
 			
@@ -83,15 +93,6 @@ app.controller('MainCtrl', [
 		$scope.incrementUpvotes = function(post){
 			post.upvotes += 1;
 
-			 //    database.goOnline();
-			
-				// var rootRef = firebase.database().ref('beers/0/name');
-				// rootRef.once('value').then(function(snapshot)){
-				// var key = snapshot.val().key; //"Jigsaw Jazz"
-				 
-				// post.upvotes += 100000000; 
-				// }
-			
 			}
 		}
 
@@ -114,6 +115,46 @@ app.controller('PostsCtrl', [
 			$scope.body = '';
 		};
 	}]);
+
+app.controller("TestCtrl", ["$scope", "$firebaseObject",
+  function($scope, $firebaseObject) {
+     var ref = new firebase.database().ref();
+     var obj = $firebaseObject(ref);
+     winston.log('info', "MADE IT TO THE CONTROLLER HEY");
+
+     // to take an action after the data loads, use the $loaded() promise
+     obj.$loaded().then(function() {
+        winston.log('info', "loaded record:", obj.$id, obj.someOtherKeyInData);
+
+       // To iterate the key/value pairs of the object, use angular.forEach()
+       angular.forEach(obj, function(value, key) {
+          console.log(key, value);
+       });
+     });
+
+     // To make the data available in the DOM, assign it to $scope
+     $scope.data = obj;
+
+     // For three-way data bindings, bind it to the scope instead
+     obj.$bindTo($scope, "data");
+  }
+]);
+
+
+// app.controller("TestCtrl", ["$scope", "$firebaseObject",
+//   function($scope, $firebaseObject) {
+//     var ref = firebase.database().ref();
+//     var obj = $firebaseObject(ref);
+//     obj.$bindTo($scope, "data").then(function() {
+// 	  console.log($scope.data); // { foo: "bar" }
+// 	  //$scope.data.foo = "baz";  // will be saved to the database
+// 	  //ref.set({ foo: "baz" });  // this would update the database and $scope.data
+// 	});
+//     // download physicsmarie's profile data into a local object
+//     // all server changes are applied in realtime
+//     //$scope.test = $firebaseObject(ref.child('beers').child('GFresh'));
+//   }
+// ]);
 
 // app.controller('LoginCtrl', [
 // 	'$scope',
