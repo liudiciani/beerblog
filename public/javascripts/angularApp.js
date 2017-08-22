@@ -28,6 +28,12 @@ app.config([
 		 	controller: 'LoginCtrl'
 		 });
 
+		$stateProvider.state('test', {
+		 	url: '/test',
+		 	templateUrl: '/test.html',
+		 	controller: 'TestCtrl'
+		 });
+
 		$urlRouterProvider
 		.otherwise('home');
 
@@ -114,6 +120,26 @@ app.controller('PostsCtrl', [
 			$scope.body = '';
 		};
 	}]);
+
+	app.factory('Myservice', function($http){
+	    return {
+	        getdata: function(){
+	              return $http.get('/javascripts/testJSON.json'); // You Have to give Correct Url either Local path or api etc 
+
+	        }
+	    };
+	});
+
+	app.controller('TestCtrl', function($scope, Myservice){
+
+		Myservice.getdata().success(function (data){
+                   $scope.beers=data.beers; // as per  emilySmitley Answer which is Working Good
+                   });
+        Myservice.getdata().error(function(data,status,error,config){
+       	
+       			 		$scope.message = "error loading data!";
+    });
+        	});
 
 // app.controller('LoginCtrl', [
 // 	'$scope',
