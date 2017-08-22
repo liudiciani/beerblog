@@ -1,14 +1,13 @@
 {"beers" : [
         {
         "name":"Jigsaw Jazz",
-                "rating": "10",
-                "style": "IPA",
-                "ABV": "4",
-                "brewery": "Fort Hill Brewery",
-                "availability": "Yearround",
-                "location": "Spirit Haus",
-                "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
-
+        "rating": "10",
+        "style": "IPA",
+        "ABV": "4",
+        "brewery": "Fort Hill Brewery",
+        "availability": "Yearround",
+        "location": "Spirit Haus",
+        "comments":"yummy!"
         },
         {
         "name":"GFresh",
@@ -18,8 +17,8 @@
         "brewery": "Fort Hill Brewery",
         "availability": "Yearround",
         "location": "Spirit Haus",
-        "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
-        },
+        "comments":"juicy!!"
+       },
         {
         "name":"A Street",
         "rating": "10",
@@ -28,7 +27,7 @@
         "brewery": "Trillium",
         "availability": "Yearround",
         "location": "Trillium Beer Garden, Boston",
-        "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
+        "comments":"hoppy!"
         }
         
 ]}

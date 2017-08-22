@@ -12,8 +12,8 @@ app.config([
 	function($stateProvider, $urlRouterProvider){
 		$stateProvider.state('home', {
 			url: '/home',
-			templateUrl: '/home.html',
-			controller: 'MainCtrl'
+			templateUrl: '/test.html',
+			controller: 'TestCtrl'
 		});
 
 		$stateProvider.state('posts', {
@@ -116,7 +116,7 @@ app.controller('PostsCtrl', [
 		};
 	}]);
 
-	app.factory('Myservice', function($http){
+	app.factory('dataService', function($http){
 	    return {
 	        getdata: function(){
 	              return $http.get('/javascripts/testJSON.json'); // You Have to give Correct Url either Local path or api etc 
@@ -125,13 +125,60 @@ app.controller('PostsCtrl', [
 	    };
 	});
 
-	app.controller('TestCtrl', function($scope, Myservice){
+	app.controller('TestCtrl', function($scope, dataService){
+		//var jsonStr = null;
+		//var obj = null;
+		//var newObj = null;
 
-		Myservice.getdata().success(function (data){
-                   $scope.beers=data.beers; // as per  emilySmitley Answer which is Working Good
-                   });
-        Myservice.getdata().error(function(data,status,error,config){
-       	
-       			 	$scope.message = "error loading data!";
-    });
-        	});
+		var jsonObj;
+		var jsonArray;
+
+		dataService.getdata().success(function (data){
+             jsonObj = data;
+             jsonArray = data.beers;
+             $scope.beers = jsonArray;
+        });
+        dataService.getdata().error(function(data,status,error,config){
+       		$scope.message = "error loading data!";
+    	});
+
+    
+    
+        $scope.addBeer = function(){
+        	//returns JSON object 
+        	//$scope.message = jsonObj;
+
+        	//returns array in JSON
+			//$scope.message2 = jsonArray;
+
+			//returns 0th element in array
+			//$scope.message3 =  jsonArray[0];
+
+			//returns 'name' field of 0th element in array
+			//$scope.message4 = jsonArray[0].name;
+
+			//returns length of array
+			//$scope.message5 = jsonArray.length;
+
+
+			if(!$scope.name || $scope.name === ''){return;}
+
+
+			var newObj =  {
+				"name":$scope.name,
+				"rating":$scope.rating,
+				"style":$rating,
+				"ABV":$scope.ABV,
+				"brewery":$scope.brewery,
+				"availability":$scope.availability,
+				"location":$scope.location,
+				"comments":$scope.comments
+			}
+
+			//jsonArray[length] = newObj;
+			jsonArray.push(newObj);
+
+
+		};
+	});
+        	

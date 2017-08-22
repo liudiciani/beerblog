@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=IM+Fell+English+SC');
 @import url('https://fonts.googleapis.com/css?family=Miniver');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline');
+@import url('https://fonts.googleapis.com/css?family=Copse');
 
 #brew{
 	font-family: "IM Fell English SC";
@@ -13,15 +14,13 @@
 	font-family: "Homemade Apple";
 	color: #380D00;
 	font-size: 90px;
+
 }
 
 
 .parallax { 
-
-    background-image: url("/images/background.jpg");
-    height: 300px; 
-
-
+    background-image: url("http://orderpantry.com/assets/load-wallpaper-6ccf57e093a3bdbbcd10d4b6327669cb.jpg");
+    height: 200px; 
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,28 +28,44 @@
     opacity: 0.6;
 }
 
-
-
-.jumbotron{
-	background-color: transparent;
-	margin-top: -150px;
+.splitter{
+	width: 100%;
+	height: 100px;
+	padding-left: 3000px;
+	margin-left: -3000px;
+	padding-right: 3000px;
+	margin-right: -3000px;
 }
 
+.navbar{
+	margin-bottom: 0px;
+}
+
+
+.page-header{
+	margin-left: -100px;
+}
+.jumbotron{
+	background-color: transparent;
+	margin-top: -165px;
+}
 
 .jumbotron img{
 	width: 100px;
 	height: 100px;
-	margin-top: -70px;
+	margin-top: -85px;
 }
 
 .jumbotron h1{
 	font-color: white;
 }
 
+.templates{
+	margin-top: -100px;
+}
 body {
-  padding: 50px;
-  font: 14px
-  "IM Fell English SC"
+  font: 20px
+  "Copse"
 }
 
 a {
@@ -58,7 +73,19 @@ a {
 }
 
 
+.glyphicon{
+	padding-right: 20px;
+}
 
 .thumbnail:hover{
 	opacity: 0.6;
 }
+
+
+
+.star-rating {
+  line-height:50px;
+  font-size:50px;
+}
+
+.star-rating .fa-star{color: black;}
