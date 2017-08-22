@@ -1,30 +1,23 @@
-{"beers" : [
-        {
-        "name":"Jigsaw Jazz",
-        "description":
-                {
-                "rating": "10",
-                "style": "IPA",
-                "ABV": "4",
-                "brewery": "Fort Hill Brewery",
-                "availability": "Yearround",
-                "location": "Spirit Haus",
-                "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
+{"beers" : {
+        "Jigsaw Jazz" : {
+                        "rating": "10",
+                        "style": "IPA",
+                        "ABV": "4",
+                        "brewery": "Fort Hill Brewery",
+                        "availability": "Yearround",
+                        "location": "Spirit Haus",
+                        "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
 
-                }
-        },
-        {
-        "name":"GFresh",
-        "description":
-                {
-                "rating": "10",
-                "style": "IPA",
-                "ABV": "4",
-                "brewery": "Fort Hill Brewery",
-                "availability": "Yearround",
-                "location": "Spirit Haus",
-                "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
+                },
+        "GFresh" : {
+                        "rating": "10",
+                        "style": "IPA",
+                        "ABV": "4",
+                        "brewery": "Fort Hill Brewery",
+                        "availability": "Yearround",
+                        "location": "Spirit Haus",
+                        "picture": "https://static1.squarespace.com/static/51efde71e4b04fff6d3a9dea/557849f7e4b08f5b4efbfe51/58ff79addb29d65fe3323646/1493138401396/IMG_7374+edit.jpg?format=1500w"
 
                 }
         }
-]}
+}

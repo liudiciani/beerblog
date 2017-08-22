@@ -1,0 +1,4 @@
+::1 - - [16/Aug/2017:17:27:52 +0000] "GET /angular.min.js HTTP/1.1" 404 1146 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+::1 - - [16/Aug/2017:17:27:52 +0000] "GET /jquery.form.js HTTP/1.1" 404 1146 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+::1 - - [16/Aug/2017:17:27:52 +0000] "GET /jquery.2.0.2.js HTTP/1.1" 404 1146 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+::1 - - [16/Aug/2017:17:27:52 +0000] "GET /jquery.form.js HTTP/1.1" 404 1146 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
