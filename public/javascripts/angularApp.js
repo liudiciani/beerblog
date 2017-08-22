@@ -56,10 +56,14 @@ app.controller('MainCtrl', [
 	'posts',
 	function($scope, posts){
 
+		
+
 		$scope.posts = posts.posts; 
 
 
 		$scope.addPost = function(){
+			
+			
 			// prevents user from posting an empty post
 			if(!$scope.name || $scope.name === ''){return;}
 			
@@ -89,15 +93,6 @@ app.controller('MainCtrl', [
 		$scope.incrementUpvotes = function(post){
 			post.upvotes += 1;
 
-			 //    database.goOnline();
-			
-				// var rootRef = firebase.database().ref('beers/0/name');
-				// rootRef.once('value').then(function(snapshot)){
-				// var key = snapshot.val().key; //"Jigsaw Jazz"
-				 
-				// post.upvotes += 100000000; 
-				// }
-			
 			}
 		}
 
@@ -137,34 +132,6 @@ app.controller('PostsCtrl', [
                    });
         Myservice.getdata().error(function(data,status,error,config){
        	
-       			 		$scope.message = "error loading data!";
+       			 	$scope.message = "error loading data!";
     });
         	});
-
-// app.controller('LoginCtrl', [
-// 	'$scope',
-// 	function($scope){
-// 		$scope.addUser = function(){
-// 			  admin.auth().createUser({
-// 			  email: "test@example.com",
-// 			  uid: "test-uid",
-// 			  emailVerified: true,
-// 			  password: "password",
-// 			  displayName: "Test",
-// 			  photoURL: "http://4.bp.blogspot.com/-x_QDRsKtCko/UgWs4GzqOgI/AAAAAAAAEJU/KzBJO_r6MaI/s1600/Funny-Animals-Dog-Smoking.jpg",
-// 			  disabled: false
-// 			})
-// 			  .then(function(userRecord) {
-// 			    // See the UserRecord reference doc for the contents of userRecord.
-// 			    console.log("Successfully created new user:", userRecord.uid);
-// 			  })
-// 			  .catch(function(error) {
-// 			    console.log("Error creating new user:", error);
-//   			});
-// 		};
-// 	};
-// }]);
-
-
-
-
