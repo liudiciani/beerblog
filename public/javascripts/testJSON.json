@@ -1,33 +1,33 @@
 {"beers" : [
         {
         "name":"Jigsaw Jazz",
-        "rating": "10",
+        "rating": 4,
         "style": "IPA",
-        "ABV": "4",
+        "ABV": 4,
         "brewery": "Fort Hill Brewery",
         "availability": "Yearround",
         "location": "Spirit Haus",
-        "comments":"yummy!"
+        "description": "yummy!"
         },
         {
         "name":"GFresh",
-        "rating": "10",
+        "rating": 4,
         "style": "IPA",
-        "ABV": "4",
+        "ABV": 4,
         "brewery": "Fort Hill Brewery",
         "availability": "Yearround",
         "location": "Spirit Haus",
-        "comments":"juicy!!"
+        "description": "mmmmmmm!"
        },
         {
         "name":"A Street",
-        "rating": "10",
+        "rating": 5,
         "style": "IPA",
-        "ABV": "5",
+        "ABV": 5,
         "brewery": "Trillium",
         "availability": "Yearround",
         "location": "Trillium Beer Garden, Boston",
-        "comments":"hoppy!"
+        "description": "delish!"
         }
         
 ]}

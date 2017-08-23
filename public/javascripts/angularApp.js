@@ -12,8 +12,8 @@ app.config([
 	function($stateProvider, $urlRouterProvider){
 		$stateProvider.state('home', {
 			url: '/home',
-			templateUrl: '/test.html',
-			controller: 'TestCtrl'
+			templateUrl: '/home.html',
+			controller: 'MainCtrl'
 		});
 
 		$stateProvider.state('posts', {
@@ -130,6 +130,7 @@ app.controller('PostsCtrl', [
 		//var obj = null;
 		//var newObj = null;
 
+
 		var jsonObj;
 		var jsonArray;
 
@@ -137,48 +138,81 @@ app.controller('PostsCtrl', [
              jsonObj = data;
              jsonArray = data.beers;
              $scope.beers = jsonArray;
+   //          $scope.message = jsonArray;
         });
+
         dataService.getdata().error(function(data,status,error,config){
        		$scope.message = "error loading data!";
     	});
 
+
     
     
         $scope.addBeer = function(){
-        	//returns JSON object 
-        	//$scope.message = jsonObj;
+   //      	//returns JSON object 
+   //      	$scope.message1 = jsonObj;
+			
 
-        	//returns array in JSON
-			//$scope.message2 = jsonArray;
+   //      	//returns array in JSON
+			// $scope.message2 = jsonArray;
 
-			//returns 0th element in array
-			//$scope.message3 =  jsonArray[0];
+			// //returns 0th element in array
+			// $scope.message3 =  jsonArray[0];
 
-			//returns 'name' field of 0th element in array
-			//$scope.message4 = jsonArray[0].name;
+			// //returns 'name' field of 0th element in array
+			// $scope.message4 = jsonArray[0].name;
 
-			//returns length of array
-			//$scope.message5 = jsonArray.length;
+			// //returns length of array
+			// $scope.message5 = jsonArray.length;
 
 
-			if(!$scope.name || $scope.name === ''){return;}
 
 
 			var newObj =  {
 				"name":$scope.name,
-				"rating":$scope.rating,
-				"style":$rating,
+				"rating":document.getElementById("rating").value,
+				"style":$scope.style,
 				"ABV":$scope.ABV,
 				"brewery":$scope.brewery,
 				"availability":$scope.availability,
 				"location":$scope.location,
-				"comments":$scope.comments
+				"description":$scope.description
 			}
 
-			//jsonArray[length] = newObj;
+
+			var rating = $scope.rating;
+			$scope.message = rating;
+
 			jsonArray.push(newObj);
+
+			$scope.beers = jsonArray;
+
+
+
 
 
 		};
 	});
         	
+
+
+    app.directive("optional", function() {
+    return {
+        restrict: 'A', // only for attributes
+        compile: function(element) {
+            // insert asterisk after elment 
+            element.css('border-color', "gray")
+        }
+    };
+});
+
+
+    app.directive("required", function() {
+    return {
+        restrict: 'A', // only for attributes
+        compile: function(element) {
+            // insert asterisk after elment 
+            element.css('border-color', "black")
+        }
+    };
+});
