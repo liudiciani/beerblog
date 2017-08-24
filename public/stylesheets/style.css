@@ -116,19 +116,19 @@ repeat {
 }
 
 repeat[n="1"]:before {
-   content: "★";
+   content: "★☆☆☆☆";
 }
 
 repeat[n="2"]:before {
-   content: "★★";
+   content: "★★☆☆☆";
 }
 
 repeat[n="3"]:before {
-   content: "★★★";
+   content: "★★★☆☆";
 }
 
 repeat[n="4"]:before {
-   content: "★★★★";
+   content: "★★★★☆";
 }
 
 repeat[n="5"]:before {
