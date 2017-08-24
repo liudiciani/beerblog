@@ -116,6 +116,11 @@ app.controller('PostsCtrl', [
 		};
 	}]);
 
+
+
+
+
+
 	app.factory('dataService', function($http){
 	    return {
 	        getdata: function(){
@@ -125,6 +130,21 @@ app.controller('PostsCtrl', [
 	    };
 	});
 
+	// app.factory('styleDataService', function($http){
+	//     return {
+	//         getdata: function(){
+	//               return $http.get('/javascripts/stylesJSON.json'); // You Have to give Correct Url either Local path or api etc 
+
+	//         }
+	//     };
+	// });
+
+
+
+	
+
+
+
 	app.controller('TestCtrl', function($scope, dataService){
 		//var jsonStr = null;
 		//var obj = null;
@@ -133,8 +153,11 @@ app.controller('PostsCtrl', [
 
 		var jsonObj;
 		var jsonArray;
+		var styleJsonObj;
+		var styleJsonArray;
 
 		dataService.getdata().success(function (data){
+			 
              jsonObj = data;
              jsonArray = data.beers;
              $scope.beers = jsonArray;
@@ -144,6 +167,22 @@ app.controller('PostsCtrl', [
         dataService.getdata().error(function(data,status,error,config){
        		$scope.message = "error loading data!";
     	});
+
+
+
+
+    	// styleDataService.getdata().success(function (data){
+    	// 	$scope.message1 = "hey";
+     //         styleJsonObj = data;
+     //         styleJsonArray = data.styles;
+     //         $scope.styles = stylejsonArray;
+     //         $scope.message = jsonArray;
+     //    });
+
+     //    styleDataService.getdata().error(function(data,status,error,config){
+     //   		$scope.message = "error loading data!";
+    	// });
+
 
 
     
@@ -165,8 +204,14 @@ app.controller('PostsCtrl', [
 			// //returns length of array
 			// $scope.message5 = jsonArray.length;
 
-
-
+			var availability = null;
+			var location = null;
+			if(!$scope.availability || $scope.availability === ''){
+				availability = "-"
+			}
+			if(!$scope.location || $scope.location === ''){
+				location = "-"
+			}
 
 			var newObj =  {
 				"name":$scope.name,
@@ -174,8 +219,8 @@ app.controller('PostsCtrl', [
 				"style":$scope.style,
 				"ABV":$scope.ABV,
 				"brewery":$scope.brewery,
-				"availability":$scope.availability,
-				"location":$scope.location,
+				"availability":availability,
+				"location":location,
 				"description":$scope.description
 			}
 
