@@ -50,6 +50,9 @@ app.factory('posts', [function(){
 }]);
 
 
+
+
+
 // ADDING POSTS, UPVOTING POSTS
 app.controller('MainCtrl', [
 	'$scope',
@@ -130,31 +133,33 @@ app.controller('PostsCtrl', [
 	    };
 	});
 
-	// app.factory('styleDataService', function($http){
-	//     return {
-	//         getdata: function(){
-	//               return $http.get('/javascripts/stylesJSON.json'); // You Have to give Correct Url either Local path or api etc 
+	app.factory('styleDataService', function($http){
+	    return {
+	        getdata: function(){
+	              return $http.get('/javascripts/stylesJSON.json'); // You Have to give Correct Url either Local path or api etc 
 
-	//         }
-	//     };
-	// });
+	        }
+	    };
+	});
 
-
+	
 
 	
 
 
 
-	app.controller('TestCtrl', function($scope, dataService){
+	app.controller('TestCtrl', function($scope, dataService, styleDataService){
 		//var jsonStr = null;
 		//var obj = null;
 		//var newObj = null;
 
 
+
+
 		var jsonObj;
 		var jsonArray;
-		var styleJsonObj;
-		var styleJsonArray;
+		var stylesJsonObj;
+		var stylesJsonArray;
 
 		dataService.getdata().success(function (data){
 			 
@@ -171,38 +176,24 @@ app.controller('PostsCtrl', [
 
 
 
-    	// styleDataService.getdata().success(function (data){
-    	// 	$scope.message1 = "hey";
-     //         styleJsonObj = data;
-     //         styleJsonArray = data.styles;
-     //         $scope.styles = stylejsonArray;
-     //         $scope.message = jsonArray;
-     //    });
+    	styleDataService.getdata().success(function (data){
+             stylesJsonObj = data;
+             stylesJsonArray = data.styles;
+             $scope.styles = stylesJsonArray;
+             $scope.message = stylesJsonArray;
+        });
 
-     //    styleDataService.getdata().error(function(data,status,error,config){
-     //   		$scope.message = "error loading data!";
-    	// });
+        styleDataService.getdata().error(function(data,status,error,config){
+       		$scope.message = "error loading data!";
+    	});
 
+
+    	
 
 
     
     
         $scope.addBeer = function(){
-   //      	//returns JSON object 
-   //      	$scope.message1 = jsonObj;
-			
-
-   //      	//returns array in JSON
-			// $scope.message2 = jsonArray;
-
-			// //returns 0th element in array
-			// $scope.message3 =  jsonArray[0];
-
-			// //returns 'name' field of 0th element in array
-			// $scope.message4 = jsonArray[0].name;
-
-			// //returns length of array
-			// $scope.message5 = jsonArray.length;
 
 			var availability = null;
 			var location = null;
@@ -226,7 +217,6 @@ app.controller('PostsCtrl', [
 
 
 			var rating = $scope.rating;
-			$scope.message = rating;
 
 			jsonArray.push(newObj);
 

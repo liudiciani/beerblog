@@ -45,14 +45,13 @@
 	margin-top: -85px;
 }
 
-.form-group{
+.form-group, .form-inline{
 	text-align: center;
 }
 
 h4{
 	padding-bottom: 10px;
 }
-
 
 
 
