@@ -13,7 +13,7 @@ app.config([
 		$stateProvider.state('home', {
 			url: '/home',
 			templateUrl: '/home.html',
-			controller: 'MainCtrl'
+			controller: 'HomeCtrl'
 		});
 
 		$stateProvider.state('posts', {
@@ -28,10 +28,10 @@ app.config([
 		 	controller: 'LoginCtrl'
 		 });
 
-		$stateProvider.state('test', {
-		 	url: '/test',
-		 	templateUrl: '/test.html',
-		 	controller: 'TestCtrl'
+		$stateProvider.state('catalog', {
+		 	url: '/catalog',
+		 	templateUrl: '/catalog.html',
+		 	controller: 'HomeCtrl'
 		 });
 
 		$urlRouterProvider
@@ -54,52 +54,52 @@ app.factory('posts', [function(){
 
 
 // ADDING POSTS, UPVOTING POSTS
-app.controller('MainCtrl', [
-	'$scope',
-	'posts',
-	function($scope, posts){
+// app.controller('MainCtrl', [
+// 	'$scope',
+// 	'posts',
+// 	function($scope, posts){
 
 		
 
-		$scope.posts = posts.posts; 
+// 		$scope.posts = posts.posts; 
 
 
-		$scope.addPost = function(){
+// 		$scope.addPost = function(){
 			
 			
-			// prevents user from posting an empty post
-			if(!$scope.name || $scope.name === ''){return;}
+// 			// prevents user from posting an empty post
+// 			if(!$scope.name || $scope.name === ''){return;}
 			
-			$scope.posts.push({
-				name: $scope.name,
-				content: $scope.content,
-				rating: $scope.rating,
-				upvotes: 0,
-				comments: [
-					{author: 'Joe', body: 'Cool post!', upvotes: 0},
-					{author: 'Phil', body: 'Dece', upvotes: 0}
-				]
+// 			$scope.posts.push({
+// 				name: $scope.name,
+// 				content: $scope.content,
+// 				rating: $scope.rating,
+// 				upvotes: 0,
+// 				comments: [
+// 					{author: 'Joe', body: 'Cool post!', upvotes: 0},
+// 					{author: 'Phil', body: 'Dece', upvotes: 0}
+// 				]
 
-			});
+// 			});
 
-			$scope.name = '';
-			$scope.content = '';
-			$scope.rating = '';
-		};
+// 			$scope.name = '';
+// 			$scope.content = '';
+// 			$scope.rating = '';
+// 		};
 
-		$scope.incrementRating = function(post){
-			if(post.rating < 10){
-				post.rating += 1;
-			}
-		}
+// 		$scope.incrementRating = function(post){
+// 			if(post.rating < 10){
+// 				post.rating += 1;
+// 			}
+// 		}
 
-		$scope.incrementUpvotes = function(post){
-			post.upvotes += 1;
+// 		$scope.incrementUpvotes = function(post){
+// 			post.upvotes += 1;
 
-			}
-		}
+// 			}
+// 		}
 
-]);
+// ]);
 
 app.controller('PostsCtrl', [
 	'$scope',
@@ -142,18 +142,8 @@ app.controller('PostsCtrl', [
 	    };
 	});
 
-	
 
-	
-
-
-
-	app.controller('TestCtrl', function($scope, dataService, styleDataService){
-		//var jsonStr = null;
-		//var obj = null;
-		//var newObj = null;
-
-
+	app.controller('HomeCtrl', function($scope, dataService, styleDataService){
 
 
 		var jsonObj;
@@ -162,11 +152,9 @@ app.controller('PostsCtrl', [
 		var stylesJsonArray;
 
 		dataService.getdata().success(function (data){
-			 
              jsonObj = data;
              jsonArray = data.beers;
              $scope.beers = jsonArray;
-   //          $scope.message = jsonArray;
         });
 
         dataService.getdata().error(function(data,status,error,config){
@@ -174,13 +162,10 @@ app.controller('PostsCtrl', [
     	});
 
 
-
-
     	styleDataService.getdata().success(function (data){
              stylesJsonObj = data;
              stylesJsonArray = data.styles;
              $scope.styles = stylesJsonArray;
-             $scope.message = stylesJsonArray;
         });
 
         styleDataService.getdata().error(function(data,status,error,config){
@@ -189,14 +174,15 @@ app.controller('PostsCtrl', [
 
 
     	
-
-
-    
     
         $scope.addBeer = function(){
 
+        	
+			var id = jsonArray.length + 1;
 			var availability = null;
 			var location = null;
+
+
 			if(!$scope.availability || $scope.availability === ''){
 				availability = "-"
 			}
@@ -204,27 +190,22 @@ app.controller('PostsCtrl', [
 				location = "-"
 			}
 
+
+
+
 			var newObj =  {
 				"name":$scope.name,
 				"rating":document.getElementById("rating").value,
 				"style":$scope.style,
 				"ABV":$scope.ABV,
 				"brewery":$scope.brewery,
-				"availability":availability,
-				"location":location,
-				"description":$scope.description
+				"availability":$scope.availability,
+				"location":$scope.location,
+				"description":$scope.description,
+				"id": id
 			}
-
-
-			var rating = $scope.rating;
-
 			jsonArray.push(newObj);
-
 			$scope.beers = jsonArray;
-
-
-
-
 
 		};
 	});

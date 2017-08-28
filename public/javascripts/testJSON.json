@@ -3,31 +3,34 @@
         "name":"Jigsaw Jazz",
         "rating": 4,
         "style": "IPA",
-        "ABV": 4,
+        "ABV": 4.0,
         "brewery": "Fort Hill Brewery",
         "availability": "Yearround",
         "location": "Spirit Haus",
-        "description": "yummy!"
+        "description": "Pours a hazy golden, not as orange or murky as most NEIPAs. Some citrus and resiny mangoes, coupled with booze. It has a very Treehouse feel to it, but with a lot of booze. Some tropical fruit up front. Chewy bubblegum like saison mouthfeel. It's a little unbalanced which is where it loses points with me.",
+        "id" : 1
         },
         {
         "name":"GFresh",
         "rating": 4,
         "style": "IPA",
-        "ABV": 4,
+        "ABV": 4.5,
         "brewery": "Fort Hill Brewery",
         "availability": "Yearround",
         "location": "Spirit Haus",
-        "description": "mmmmmmm!"
+        "description": "Poured from a 12 ounce can into a stemmed glass. Good head, minimal lacing. Opaque orange coloring, almost like a juice. Definite grapefruit aroma on the pour. First sip is all about the grapefruit mixing with the hops in a most delicious way! The mix of Nugget, Cascade & Summit hops blends perfectly, with a mild 40 IBUs. The abv checks in a 5%. This is another great IPA from Fort Hill, a brewery that use to make just lagers. I read that there is a new brewmaster; if so that person is doing an excellent job! The last two beers I have had from this brewery have been memorable, and at an affordable price. Look forward to visiting the brewery and sampling the beers on tap.",
+        "id" : 2
        },
         {
-        "name":"A Street",
+        "name":"Congress Street",
         "rating": 5,
         "style": "IPA",
-        "ABV": 5,
+        "ABV": 5.0,
         "brewery": "Trillium",
         "availability": "Yearround",
         "location": "Trillium Beer Garden, Boston",
-        "description": "delish!"
+        "description": "Purchased from the Fort Point location. None of the cans in my four-pack had canned on dates on the bottom. Appearance: The body is a light beige color with some dull hues of orange. The head is average sized with a thick, frothy, creamy composition. It leaves spotty lacing on the glass and it has decent retention. It's a good looking beer in the glass. Aroma: The aroma is very light. There is a light bit of peach and some pineapple. Again the aromas are nice but they are so light that the nose has to hover over the glass for a long time to really pick them up. Taste: It has a bit of a grassy taste with a bit of mint and lime. While drinking the beer for a while it starts to pick up a bit of under-ripe pineapple flavor. It has a touch of mango in the aftertaste. Mouthfeel: Low bitterness. It feels light bodied and a wet finish. It's a pretty average tasting IPA. The aromas are nice but very faint. The flavor profile of the beer is pretty good although it is a bit mixed. It's good enough that I would still drink it again but it wouldn't be my first pick of Trillium beers or IPAs in general. I would recommend trying it out.",
+        "id" : 3
         }
         
 ]}
