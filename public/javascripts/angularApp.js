@@ -1,7 +1,7 @@
 var app = angular.module('app',['ui.router']);
 
 //https://firebase.google.com/docs/database/#implementation_path
-//THIS IS WHERE YOU LEFT OFF!! Try connecting to database to read/write data to UI thx
+//THIS IS WHERE YOU LEFT OFF!! Try connecting to database to read/write data to UI since u couldn't figure it out last time, thx dumbass
 
 
 //CONFIGURE HOME STATE USING UI-ROUTER.
@@ -122,30 +122,7 @@ app.controller('PostsCtrl', [
 
 
 
-
-
-	app.factory('dataService', function($http){
-	    return {
-	        getdata: function(){
-	              return $http.get('/javascripts/testJSON.json'); // You Have to give Correct Url either Local path or api etc 
-
-	        }
-	    };
-	});
-
-	app.factory('styleDataService', function($http){
-	    return {
-	        getdata: function(){
-	              return $http.get('/javascripts/stylesJSON.json'); // You Have to give Correct Url either Local path or api etc 
-
-	        }
-	    };
-	});
-
-
 	app.controller('HomeCtrl', function($scope, dataService, styleDataService){
-
-
 		var jsonObj;
 		var jsonArray;
 		var stylesJsonObj;
@@ -158,8 +135,8 @@ app.controller('PostsCtrl', [
         });
 
         dataService.getdata().error(function(data,status,error,config){
-       		$scope.message = "error loading data!";
-    	});
+       		$scope.message = "error loading data :(";
+    	});	
 
 
     	styleDataService.getdata().success(function (data){
@@ -176,12 +153,9 @@ app.controller('PostsCtrl', [
     	
     
         $scope.addBeer = function(){
-
-        	
 			var id = jsonArray.length + 1;
 			var availability = null;
 			var location = null;
-
 
 			if(!$scope.availability || $scope.availability === ''){
 				availability = "-"
@@ -189,9 +163,6 @@ app.controller('PostsCtrl', [
 			if(!$scope.location || $scope.location === ''){
 				location = "-"
 			}
-
-
-
 
 			var newObj =  {
 				"name":$scope.name,
@@ -209,7 +180,24 @@ app.controller('PostsCtrl', [
 
 		};
 	});
-        	
+        
+
+    app.factory('dataService', function($http){
+	    return {
+	        getdata: function(){
+	              return $http.get('/javascripts/testJSON.json'); 
+	        }
+	    };
+	});
+
+	app.factory('styleDataService', function($http){
+	    return {
+	        getdata: function(){
+	              return $http.get('/javascripts/stylesJSON.json'); // You Have to give Correct Url either Local path or api etc 
+
+	        }
+	    };
+	});	
 
 
     app.directive("optional", function() {
