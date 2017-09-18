@@ -6,10 +6,14 @@
 
 #brew{
 	font-family: "IM Fell English SC";
-	color: black;
-	font-size: 40px;
-	opacity: 0.6;
+	color: white ;
+	font-size: 90px;
+	letter-spacing: 4px;
+	opacity: 0.5;
+	margin-top: -200px;
+	margin-bottom: 100px;
 	text-align: center;
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
 }
 
 
@@ -20,7 +24,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.6;
+    opacity: 0.7;
 }
 
 
@@ -39,7 +43,6 @@ h4{
 
 .jumbotron{
 	background-color: transparent;
-	text-align: center;
 	margin-top: -320px;
 }
 
